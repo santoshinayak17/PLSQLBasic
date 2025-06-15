@@ -14,3 +14,11 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('I am ' || v_test);
 END;
 
+CREATE TABLE employees (
+    
+    emp_name   VARCHAR2(100)
+   
+);
+
+GRANT CREATE TABLE TO your_username;
+
