@@ -1,0 +1,7 @@
+SET SERVEROUTPUT ON;
+DECLARE
+    v_pi CONSTANT NUMBER(7,6) := 3.141592;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('The value of pi is ' || v_pi);
+END;
+

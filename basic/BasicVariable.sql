@@ -13,3 +13,10 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('I am ' || v_test);
 END;
 
+set SERVEROUTPUT ON;
+DECLARE
+v_name employees.EMP_NAME%TYPE;
+BEGIN
+    SELECT emp_name into v_name from employees WHERE EMP_ID=1;
+    DBMS_OUTPUT.PUT_LINE('I am ' || v_name);
+END;
