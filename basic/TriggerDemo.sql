@@ -1,0 +1,18 @@
+CREATE TABLE Superhero(
+    sh_name VARCHAR2(30)
+);
+
+SET SERVEROUTPUT ON;
+CREATE OR REPLACE TRIGGER BI_SUPERHERO
+BEFORE INSERT ON SUPERHERO
+FOR EACH ROW
+DECLARE
+    v_user VARCHAR2(30);
+BEGIN
+  SELECT user INTO v_user FROM dual;
+    DBMS_OUTPUT.PUT_LINE('You have just inserted ' || v_user);
+END;
+/
+
+
+INSERT INTO Superhero (sh_name) VALUES ('HANUMAN');

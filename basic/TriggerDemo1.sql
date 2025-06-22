@@ -1,0 +1,25 @@
+SET SERVEROUTPUT ON;
+CREATE OR REPLACE TRIGGER tr_superhero
+BEFORE INSERT OR DELETE OR UPDATE ON SUPERHERO
+FOR EACH ROW
+DECLARE
+    v_user VARCHAR2(30);
+BEGIN
+    SELECT user INTO v_user FROM dual;
+    IF INSERTING THEN
+    DBMS_OUTPUT.PUT_LINE('Inserted a row with user' || v_user);
+    ELSIF DELETING THEN
+    DBMS_OUTPUT.PUT_LINE('Deleted a row with user' || v_user);
+    ELSIF UPDATING THEN
+    DBMS_OUTPUT.PUT_LINE('Updated a row with user' || v_user);
+    END IF;
+END;
+/
+
+INSERT INTO SUPERHERO VALUES('Hanuman');
+
+SELECT * from SUPERHERO;
+
+UPDATE SUPERHERO SET SH_NAME = 'Superman' WHERE SH_NAME='Batman';
+
+DELETE FROM SUPERHERO WHERE SH_NAME = 'Superman';
